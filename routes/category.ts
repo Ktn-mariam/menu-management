@@ -4,9 +4,10 @@
 // API to edit category attributes
 
 import {Router} from 'express'
-import { addCategory } from '../controllers/category'
+import { addCategory, getAllCategories, getCategory } from '../controllers/category'
 const router = Router()
 
-router.route('/').post(addCategory)
+router.route('/').post(addCategory).get(getAllCategories)
+router.route('/:categoryId').get(getCategory)
 
 export default router
