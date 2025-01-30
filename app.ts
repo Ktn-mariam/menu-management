@@ -1,15 +1,18 @@
 import express from 'express'
 import 'dotenv/config'
 import connectDB from './db/connect'
+import categoryRouter from './routes/category'
 
 const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+app.use('/api/v1/category', categoryRouter)
 app.get('/', (req, res) => {
   res.send('Menu management app is running...')
 })
+
 
 const PORT = process.env.PORT || 5000
 const start = async () => {
