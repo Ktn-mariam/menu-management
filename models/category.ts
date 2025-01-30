@@ -26,12 +26,10 @@ const CategorySchema = new Schema({
   },
   tax: {
     type: Number,
-    required: [true, 'Tax is required to create a Category']
   },
   taxType: {
     type: String,
-    enum: ['INCOME', 'WEALTH', 'GIFT', 'CAPITAL GAINS', 'SECURITIES TRANSACTION', 'CORPORATE'],
-    default: 'CORPORATE'
+    enum: ['INCOME', 'WEALTH', 'GIFT', 'CAPITAL GAINS', 'SECURITIES TRANSACTION', 'CORPORATE']
   }
 })
 
