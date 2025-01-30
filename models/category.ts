@@ -14,19 +14,19 @@ const CategorySchema = new Schema({
   },
   image: {
     type: String,
-    required: [true, 'Name is required to create a Category']
+    required: [true, 'Image is required to create a Category']
   },
   description: {
     type: String,
-    required: [true, 'Name is required to create a Category']
+    required: [true, 'Description is required to create a Category']
   },
   taxApplicability: {
     type: Boolean,
-    required: [true, 'Name is required to create a Category']
+    required: [true, 'Tax Applicability is required to create a Category']
   },
   tax: {
     type: Number,
-    required: [true, 'Name is required to create a Category']
+    required: [true, 'Tax is required to create a Category']
   },
   taxType: {
     type: String,
