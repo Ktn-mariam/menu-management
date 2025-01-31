@@ -2,6 +2,7 @@ import express from 'express'
 import 'dotenv/config'
 import connectDB from './db/connect'
 import categoryRouter from './routes/category'
+import subCategoryRouter from './routes/subcategory'
 
 const app = express()
 
@@ -9,6 +10,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.use('/api/v1/category', categoryRouter)
+app.use('/api/v1/subCategory', subCategoryRouter)
 app.get('/', (req, res) => {
   res.send('Menu management app is running...')
 })
