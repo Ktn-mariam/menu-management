@@ -13,6 +13,7 @@ const ItemSchema = new Schema({
   categoryId: {
     type: Schema.Types.ObjectId,
     ref: "Category",
+    required: [true, 'CategoryId is required to create an item']
   },
   subCategoryId: {
     type: Schema.Types.ObjectId,
@@ -20,7 +21,7 @@ const ItemSchema = new Schema({
   },
   name: {
     type: String,
-    required: [true, 'Name is required to create an item']
+    required: [true, 'Name is required to create an item'],
   },
   image: {
     type: String,
