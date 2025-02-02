@@ -4,6 +4,8 @@ import connectDB from './db/connect'
 import categoryRouter from './routes/category'
 import subCategoryRouter from './routes/subcategory'
 import itemRouter from './routes/item'
+import notFoundMiddleware from './middleware/not-found';
+import errorHandlerMiddleware from './middleware/error-handler';
 
 const app = express()
 
@@ -18,6 +20,8 @@ app.get('/', (req, res) => {
   res.send('Menu management app is running...')
 })
 
+app.use(notFoundMiddleware);
+app.use(errorHandlerMiddleware)
 
 const PORT = process.env.PORT || 5000
 const start = async () => {
