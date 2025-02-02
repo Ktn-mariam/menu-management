@@ -1,4 +1,4 @@
-<h1>MENU MANAGEMENT BACKEND APPLICATION</h1>
+<h1>Menu management NodeJS application</h1>
 
 ## Prerequisites
 
