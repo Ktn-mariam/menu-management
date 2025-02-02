@@ -49,3 +49,10 @@ Create Category | /api/v1/category | POST |
 Get All Category | /api/v1/category | GET |
 Get Category | /api/v1/category/:categoryId | GET |
 Update Category | /api/v1/category/:categoryId | GET |
+
+| Action |  Route  | Method |
+|:-----|:--------:|------:|
+| Create Category   | `/api/v1/category` | POST |
+| Get All Category   |  `/api/v1/category`  |   GET |
+| Get Category   | `/api/v1/category/:categoryId` |    GET |
+| Get Category   | `/api/v1/category/:categoryId` |    GET |
