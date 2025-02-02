@@ -89,7 +89,7 @@ The item API has the following 7 endpoints:
 | Get Item   | `/api/v1/item/:itemId` |    **GET** |
 | Update Item   | `/api/v1/item/:itemId` |    **PATCH** |
 
-<table style="width:100%">
+<table width="100%">
   <tr>
     <th>Action</th>
     <td>Route</td>
