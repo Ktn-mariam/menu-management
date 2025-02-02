@@ -45,6 +45,9 @@ Following is the project structure of this application
 ├── tsconfig.json
 ```
 
+## Schema Design
+
+![Blank diagram](https://github.com/user-attachments/assets/45e1ada6-7bcf-4f3d-aeb1-51fbd24da7d8)
 
 ## API Endpoints
 
