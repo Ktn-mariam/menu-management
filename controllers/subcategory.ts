@@ -1,10 +1,25 @@
 import { Request, Response } from "express";
 import SubCategory from "../models/subcategory";
 import { StatusCodes } from "http-status-codes";
+import Category from "../models/category";
+import { NotFoundError } from "../errors";
 
 // To create a subcategory
 const addSubCategory = async (req: Request, res: Response) => {
-  const subCategory = await SubCategory.create({ ...req.body });
+  let taxApplicability;
+  let tax;
+  if (!req.body.taxApplicability || !req.body.tax) {
+    const parentCategory = await Category.findOne({ _id: req.body.categoryId });
+
+    taxApplicability = parentCategory?.taxApplicability;
+    tax = parentCategory?.tax;
+  }
+
+  const subCategory = await SubCategory.create({
+    taxApplicability,
+    tax,
+    ...req.body,
+  });
 
   res.status(StatusCodes.CREATED).json({ subCategory });
 };
@@ -63,7 +78,7 @@ const updateSubCategory = async (req: Request, res: Response) => {
     );
 
     if (!updatedSubCategory) {
-      res.status(StatusCodes.NOT_FOUND).json({ error: "SubCategory not found" });
+      throw new NotFoundError("SubCategory not found");
       return;
     }
   }
@@ -75,7 +90,7 @@ const updateSubCategory = async (req: Request, res: Response) => {
   );
 
   if (!updatedSubCategory) {
-    res.status(StatusCodes.NOT_FOUND).json({ error: "SubCategory not found" });
+    throw new NotFoundError("SubCategory not found");
     return;
   }
 

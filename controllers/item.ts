@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import Item from "../models/item";
 import { StatusCodes } from "http-status-codes";
+import SubCategory from "../models/subcategory";
+import { BadRequestError, NotFoundError } from "../errors";
 
 // To create a Item
 const addItem = async (req: Request, res: Response) => {
@@ -9,13 +11,29 @@ const addItem = async (req: Request, res: Response) => {
     : req.body.baseAmount - req.body.discount;
 
   if (!req.body.categoryId && !req.body.subCategoryId) {
-    console.log(req.body.categoryId);
-    console.log(req.body.subCategoryId);
-    
-    throw new Error("Cannot create Item without categoryId or subCategoryId");
+    throw new BadRequestError(
+      "Cannot create an Item without categoryId or subCategoryId"
+    );
   }
 
-  const item = await Item.create({ ...req.body, totalAmount });
+  let tax;
+  let taxApplicability;
+  let categoryId;
+  if (!req.body.categoryId || !req.body.taxApplicability || !req.body.tax) {
+    const subCategory = await SubCategory.findOne({
+      _id: req.body.subCategoryId,
+    });
+
+    if (!subCategory) {
+      throw new NotFoundError("SubCategory not Found")
+    }
+
+    categoryId = subCategory?.categoryId;
+    taxApplicability = subCategory?.taxApplicability;
+    tax = subCategory?.tax;
+  }
+
+  const item = await Item.create({ categoryId, totalAmount, tax, taxApplicability, ...req.body });
   res.status(StatusCodes.CREATED).json({ item });
 };
 
@@ -27,7 +45,6 @@ const getAllItems = async (req: Request, res: Response) => {
 };
 
 // To get All Items of Category
-// CHECK
 const getAllItemsOfCategory = async (req: Request, res: Response) => {
   const { categoryId } = req.params;
   const items = await Item.find({ categoryId }).select("_id name");
@@ -58,11 +75,11 @@ const searchItem = async (req: Request, res: Response) => {
   if (searchName) {
     const queryStrings = (searchName as string).split(" ");
     const allQueries: { name: { $regex: String; }; }[] = [];
-  
+
     queryStrings.forEach((element: any) => {
       allQueries.push({ name: { $regex: String(element) } });
     });
-  
+
     const allItems = await Item.find({ $or: allQueries });
     res.status(StatusCodes.OK).json({ allItems });
   } else {
@@ -118,7 +135,7 @@ const updateItem = async (req: Request, res: Response) => {
     );
 
     if (!updatedItem) {
-      res.status(StatusCodes.NOT_FOUND).json({ error: "Item not found" });
+      throw new NotFoundError("Item not found");
       return;
     }
   }
@@ -130,7 +147,7 @@ const updateItem = async (req: Request, res: Response) => {
   );
 
   if (!updatedItem) {
-    res.status(StatusCodes.NOT_FOUND).json({ error: "Item not found" });
+    throw new NotFoundError("Item not found");
     return;
   }
 
