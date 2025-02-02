@@ -92,32 +92,42 @@ The item API has the following 7 endpoints:
 <table style="width:100%">
   <tr>
     <th>Action</th>
-    <th>Create Item</th>
-    <th>Get All Items</th>
-    <th>Get All Items Under Category</th>
-    <th>Get All Items Under SubCategory</th>
-    <th>Search Item by name</th>
-    <th>Get Item</th>
-    <th>Update Item</th>
-  </tr>
-  <tr>
     <td>Route</td>
-    <td>`/api/v1/item`</td>
-    <td>`/api/v1/item`</td>
-    <td>`/api/v1/item/category/:categoryId`</td>
-    <td>`/api/v1/item/subCategory/:subCategoryId`</td>
-    <td>`/api/v1/item/search?searchName=`</td>
-    <td>`/api/v1/item/:itemId`</td>
-    <td>`/api/v1/item/:itemId`</td>
+    <td>Method</td>
   </tr>
   <tr>
-    <td>Method</td>
+    <td>Create Item</td>
+    <td>`/api/v1/item`</td>
     <td>**POST**</td>
+  </tr>
+  <tr>
+    <th>Get All Items</th>
+    <td>`/api/v1/item`</td>
     <td>**GET**</td>
+  </tr>
+  <tr>
+    <th>Get All Items Under Category</th>
+    <td>`/api/v1/item/category/:categoryId`</td>
     <td>**GET**</td>
+  </tr>
+  <tr>
+    <th>Get All Items Under SubCategory</th>
+    <td>`/api/v1/item/subCategory/:subCategoryId`</td>
     <td>**GET**</td>
+  </tr>
+  <tr>
+    <th>Search Item by name</th>
+    <td>`/api/v1/item/search?searchName=`</td>
     <td>**GET**</td>
+  </tr>
+  <tr>
+    <th>Get Item</th>
+    <td>`/api/v1/item/:itemId`</td>
     <td>**GET**</td>
+  </tr>
+  <tr>
+    <th>Update Item</th>
+    <td>`/api/v1/item/:itemId`</td>
     <td>**PATCH**</td>
   </tr>
 </table>
