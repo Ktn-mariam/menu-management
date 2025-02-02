@@ -53,9 +53,34 @@ The category API has the following 4 endpoints:
 | Action |  Route  | Method |
 |:-----|:--------:|------:|
 | Create Category   | `/api/v1/category` | POST |
-| Get All Category   |  `/api/v1/category`  |   GET |
+| Get All Categories   |  `/api/v1/category`  |   GET |
 | Get Category   | `/api/v1/category/:categoryId` |    GET |
-| Get Category   | `/api/v1/category/:categoryId` |    GET |
+| Update Category   | `/api/v1/category/:categoryId` |    GET |
 
 
 ----
+
+1. SubCategory API:
+The subCategory API has the following 4 endpoints:
+
+| Action |  Route  | Method |
+|:-----|:--------:|------:|
+| Create SubCategory   | `/api/v1/subCategory` | POST |
+| Get All SubCategories   |  `/api/v1/subCategory`  |   GET |
+| Get All SubCategories Under Category   | `/api/v1/subCategory/category/:categoryId` |    GET |
+| Get SubCategory   | `/api/v1/subCategory/:subCategoryId` |    GET |
+
+----
+
+1. Item API:
+The item API has the following 4 endpoints:
+
+| Action |  Route  | Method |
+|:-----|:--------:|------:|
+| Create Item   | `/api/v1/item` | POST |
+| Get All Items   |  `/api/v1/item`  |   GET |
+| Get All Items Under Category   | `/api/v1/item/category/:categoryId` |    GET |
+| Get All Items Under SubCategory   | `/api/v1/item/subCategory/:subCategoryId` |    GET |
+| Search Item by name   | `/api/v1/item/search?searchName=` |    GET |
+| Get Item   | `/api/v1/item/:itemId` |    GET |
+| Update Item   | `/api/v1/item/:itemId` |    PATCH |
