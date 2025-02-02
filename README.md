@@ -89,3 +89,35 @@ The item API has the following 7 endpoints:
 | Get Item   | `/api/v1/item/:itemId` |    **GET** |
 | Update Item   | `/api/v1/item/:itemId` |    **PATCH** |
 
+<table style="width:100%">
+  <tr>
+    <th>Action</th>
+    <th>Create Item</th>
+    <th>Get All Items</th>
+    <th>Get All Items Under Category</th>
+    <th>Get All Items Under SubCategory</th>
+    <th>Search Item by name</th>
+    <th>Get Item</th>
+    <th>Update Item</th>
+  </tr>
+  <tr>
+    <td>Route</td>
+    <td>`/api/v1/item`</td>
+    <td>`/api/v1/item`</td>
+    <td>`/api/v1/item/category/:categoryId`</td>
+    <td>`/api/v1/item/subCategory/:subCategoryId`</td>
+    <td>`/api/v1/item/search?searchName=`</td>
+    <td>`/api/v1/item/:itemId`</td>
+    <td>`/api/v1/item/:itemId`</td>
+  </tr>
+  <tr>
+    <td>Method</td>
+    <td>**POST**</td>
+    <td>**GET**</td>
+    <td>**GET**</td>
+    <td>**GET**</td>
+    <td>**GET**</td>
+    <td>**GET**</td>
+    <td>**PATCH**</td>
+  </tr>
+</table>
