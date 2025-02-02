@@ -95,3 +95,9 @@ The item API has the following 7 endpoints:
 | Search Item by name   | `/api/v1/item/search?searchName=` |    GET |
 | Get Item   | `/api/v1/item/:itemId` |    GET |
 | Update Item   | `/api/v1/item/:itemId` |    PATCH |
+
+<style>
+    table {
+        width: 100%;
+    }
+</style>
