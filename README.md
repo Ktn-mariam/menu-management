@@ -69,6 +69,7 @@ The subCategory API has the following 4 endpoints:
 | Get All SubCategories   |  `/api/v1/subCategory`  |   GET |
 | Get All SubCategories Under Category   | `/api/v1/subCategory/category/:categoryId` |    GET |
 | Get SubCategory   | `/api/v1/subCategory/:subCategoryId` |    GET |
+| Update SubCategory   | `/api/v1/subCategory/:subCategoryId` |    PATCH |
 
 ----
 
