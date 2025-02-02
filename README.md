@@ -6,7 +6,6 @@ Run the following command to install the dependencies:
 
 ```npm install```
 
-----
 
 ## Envirnoment variables
 
@@ -16,7 +15,6 @@ Here are the required variables:
 
 ```MONGO_URI=```
 
-----
 
 ## Run the project
 
@@ -24,7 +22,6 @@ Run the following command to run the project
 
 ```nodemon app.ts```
 
-----
 
 ## Project Structure
 
@@ -48,7 +45,6 @@ Following is the project structure of this application
 ├── tsconfig.json
 ```
 
-----
 
 ## API Endpoints
 
@@ -66,7 +62,6 @@ The category API has the following 4 endpoints:
 | Update Category   | `/api/v1/category/:categoryId` |    GET |
 
 
-----
 
 2. **SubCategory API:**
 
@@ -80,7 +75,7 @@ The subCategory API has the following 4 endpoints:
 | Get SubCategory   | `/api/v1/subCategory/:subCategoryId` |    GET |
 | Update SubCategory   | `/api/v1/subCategory/:subCategoryId` |    PATCH |
 
-----
+
 
 3. **Item API:**
 
@@ -96,8 +91,3 @@ The item API has the following 7 endpoints:
 | Get Item   | `/api/v1/item/:itemId` |    GET |
 | Update Item   | `/api/v1/item/:itemId` |    PATCH |
 
-<style>
-    table {
-        width: 100%;
-    }
-</style>
