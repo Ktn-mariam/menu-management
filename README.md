@@ -47,7 +47,7 @@ Following is the project structure of this application
 
 ## Schema Design
 
-![Blank diagram](https://github.com/user-attachments/assets/45e1ada6-7bcf-4f3d-aeb1-51fbd24da7d8)
+![Blank diagram (2)](https://github.com/user-attachments/assets/3d919838-3efa-4996-a693-dd77ac939b1d)
 
 ## API Endpoints
 
