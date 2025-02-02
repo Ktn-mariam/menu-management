@@ -3,6 +3,7 @@
 ## Prerequisites
 
 Run the following command to install the dependencies:
+
 ```npm install```
 
 ----
@@ -51,9 +52,10 @@ Following is the project structure of this application
 
 ## API Endpoints
 
-This application has 3 APIs
+This NodeJS application has 3 APIs. The menu is divided into 3 parts: Category, SubCategory, and Item. Categories have subcategories. Items can be created under categories and subCategories.
 
-1. Category API:
+1. ***Category API:***
+
 The category API has the following 4 endpoints:
 
 | Action |  Route  | Method |
@@ -66,7 +68,8 @@ The category API has the following 4 endpoints:
 
 ----
 
-1. SubCategory API:
+2. ***SubCategory API:***
+
 The subCategory API has the following 4 endpoints:
 
 | Action |  Route  | Method |
@@ -79,7 +82,8 @@ The subCategory API has the following 4 endpoints:
 
 ----
 
-1. Item API:
+3. ***Item API:***
+
 The item API has the following 7 endpoints:
 
 | Action |  Route  | Method |
