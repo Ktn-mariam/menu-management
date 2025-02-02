@@ -1,7 +1,7 @@
 Prerequisites
 
 Run the following command to install the dependencies:
-npm install
+```npm install```
 
 Envirnoment variables
 
@@ -9,18 +9,19 @@ This project is connected to a mongodb database. Create a project in mongodb and
 
 Here are the required variables:
 
-MONGO_URI=
+```MONGO_URI=```
 
 Run the project
 
 Run the following command to run the project
 
-nodemon app.ts
+```nodemon app.ts```
 
 Project Structure
 
 Following is the project structure of this application
 
+```
 ├── src/
 │   ├── controllers/    # API logic
 │   ├── db/             # To connect to db
@@ -36,6 +37,8 @@ Following is the project structure of this application
 ├── app.ts              # Main file
 ├── .gitignore
 ├── tsconfig.json
+```
+
 
 API Endpoints
 
