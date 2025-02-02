@@ -4,7 +4,9 @@
 
 Run the following command to install the dependencies:
 
-```npm install```
+```
+npm install
+```
 
 
 ## Envirnoment variables
@@ -13,14 +15,18 @@ This project is connected to a mongodb database. Create a project in mongodb and
 
 Here are the required variables:
 
-```MONGO_URI=```
+```
+MONGO_URI=
+```
 
 
 ## Run the project
 
 Run the following command to run the project
 
-```nodemon app.ts```
+```
+nodemon app.ts
+```
 
 
 ## Project Structure
@@ -62,7 +68,7 @@ The category API has the following 4 endpoints:
 | Create Category   | `/api/v1/category` | **POST** |
 | Get All Categories   |  `/api/v1/category`  |   **GET** |
 | Get Category   | `/api/v1/category/:categoryId` |    **GET** |
-| Update Category   | `/api/v1/category/:categoryId` |    **GET** |
+| Update Category   | `/api/v1/category/:categoryId` |    **PATCH** |
 
 ### SubCategory API:
 
