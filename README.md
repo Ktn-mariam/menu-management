@@ -1,10 +1,13 @@
-### Prerequisites
+<h1>MENU MANAGEMENT BACKEND APPLICATION</h1>
+
+## Prerequisites
 
 Run the following command to install the dependencies:
 ```npm install```
 
 ----
-### Envirnoment variables
+
+## Envirnoment variables
 
 This project is connected to a mongodb database. Create a project in mongodb and host a cluster. Get the uri of the cluster
 
@@ -13,14 +16,16 @@ Here are the required variables:
 ```MONGO_URI=```
 
 ----
-### Run the project
+
+## Run the project
 
 Run the following command to run the project
 
 ```nodemon app.ts```
 
 ----
-### Project Structure
+
+## Project Structure
 
 Following is the project structure of this application
 
@@ -43,7 +48,8 @@ Following is the project structure of this application
 ```
 
 ----
-### API Endpoints
+
+## API Endpoints
 
 This application has 3 APIs
 
