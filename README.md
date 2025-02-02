@@ -1,4 +1,4 @@
-<h1>Menu management NodeJS application</h1>
+<h1 display="flex" align="center">Menu Management NodeJS Application</h1>
 
 ## Prerequisites
 
