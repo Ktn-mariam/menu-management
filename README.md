@@ -73,7 +73,7 @@ The subCategory API has the following 4 endpoints:
 ----
 
 1. Item API:
-The item API has the following 4 endpoints:
+The item API has the following 7 endpoints:
 
 | Action |  Route  | Method |
 |:-----|:--------:|------:|
