@@ -5,12 +5,12 @@ import rateLimit from "express-rate-limit";
 import "express-async-handler";
 import "express-async-errors"
 import "dotenv/config";
-import connectDB from "./config/connect";
-import categoryRouter from "./routes/category";
-import subCategoryRouter from "./routes/subcategory";
-import itemRouter from "./routes/item";
-import notFoundMiddleware from "./middleware/not-found";
-import errorHandlerMiddleware from "./middleware/error-handler";
+import connectDB from "../config/connect";
+import categoryRouter from "../routes/category";
+import subCategoryRouter from "../routes/subcategory";
+import itemRouter from "../routes/item";
+import notFoundMiddleware from "../middleware/not-found";
+import errorHandlerMiddleware from "../middleware/error-handler";
 
 const app = express();
 
