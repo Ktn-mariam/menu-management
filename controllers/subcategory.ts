@@ -1,11 +1,15 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import SubCategory from "../models/subcategory";
 import { StatusCodes } from "http-status-codes";
 import Category from "../models/category";
 import { NotFoundError } from "../errors";
 
 // To create a subcategory
-const addSubCategory = async (req: Request, res: Response) => {
+const addSubCategory = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   let taxApplicability;
   let tax;
   if (!req.body.taxApplicability || !req.body.tax) {
@@ -25,7 +29,11 @@ const addSubCategory = async (req: Request, res: Response) => {
 };
 
 // To get all subcategories
-const getAllSubCategories = async (req: Request, res: Response) => {
+const getAllSubCategories = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const subCategories = await SubCategory.find({}).select("_id name");
 
   res
@@ -34,7 +42,11 @@ const getAllSubCategories = async (req: Request, res: Response) => {
 };
 
 // To get all sub categories under a category
-const getAllSubCategoriesOfCategory = async (req: Request, res: Response) => {
+const getAllSubCategoriesOfCategory = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const { categoryId } = req.params;
   const subCategories = await SubCategory.find({ categoryId }).select(
     "_id name"
@@ -46,7 +58,11 @@ const getAllSubCategoriesOfCategory = async (req: Request, res: Response) => {
 };
 
 // To get all sub categories under a category
-const getSubCategory = async (req: Request, res: Response) => {
+const getSubCategory = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const { subCategoryId } = req.params;
   const subCategory = await SubCategory.findOne({ _id: subCategoryId });
 
@@ -54,17 +70,36 @@ const getSubCategory = async (req: Request, res: Response) => {
 };
 
 // To update subCategory
-const updateSubCategory = async (req: Request, res: Response) => {
+const updateSubCategory = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const { subCategoryId } = req.params;
 
   let updateFields: any = {};
 
-  if (req.body.name) updateFields.body = req.body.name;
+  if (req.body.name) updateFields.name = req.body.name;
   if (req.body.image) updateFields.image = req.body.image;
   if (req.body.description) updateFields.description = req.body.description;
+  if (req.body.description) updateFields.categoryId = req.body.categoryId;
   if (Object.prototype.hasOwnProperty.call(req.body, "taxApplicability"))
     updateFields.taxApplicability = req.body.taxApplicability;
   if (req.body.tax) updateFields.tax = req.body.tax;
+  if (req.body.taxApplicability && !req.body.tax) {
+    const prevSubCategory = await SubCategory.findOne({ _id: subCategoryId });
+
+    if (!prevSubCategory) {
+      next(new NotFoundError(`SubCategory Not Found: ${subCategoryId}`));
+      return;
+    }
+
+    const parentCategory = await Category.findOne({
+      _id: prevSubCategory.categoryId,
+    });
+
+    updateFields.tax = parentCategory?.tax;
+  }
 
   let updatedSubCategory;
   if (
@@ -77,10 +112,6 @@ const updateSubCategory = async (req: Request, res: Response) => {
       { new: true, runValidators: true }
     );
 
-    if (!updatedSubCategory) {
-      throw new NotFoundError("SubCategory not found");
-      return;
-    }
   }
 
   updatedSubCategory = await SubCategory.findByIdAndUpdate(
@@ -88,11 +119,6 @@ const updateSubCategory = async (req: Request, res: Response) => {
     { $set: updateFields },
     { new: true, runValidators: true }
   );
-
-  if (!updatedSubCategory) {
-    throw new NotFoundError("SubCategory not found");
-    return;
-  }
 
   res.json({ category: updatedSubCategory });
 };
