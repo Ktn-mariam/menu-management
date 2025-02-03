@@ -1,33 +1,33 @@
 <h1 display="flex" align="center">Menu Management NodeJS Application</h1>
 
 ## Introduction
-
+This backend application is built with Node.js and Express.js, utilizing MongoDB as its database to simplify menu management.
 
 ## Prerequisites
-
-
+The v22.12.0 version of Node is required for installation and building of this application.
 
 ## Installation
 
-Run the following command to install the dependencies:
+_ Clone this repository by running the following command in your terminal:
+```
+git clone https://github.com/Ktn-mariam/menu-management.git
+cd menu-management
+```
+_ Run the following command to install the dependencies:
 ```
 npm install
 ```
 
 ## Envirnoment variables
 
-This project is connected to a mongodb database. Create a project in mongodb and host a cluster. Get the uri of the cluster
-
-Here are the required variables:
-
+This project is connected to a mongodb database. Create a project in mongodb and host a cluster. Get the uri of the cluster and add it to your .env file. Here are the required variables:
 ```
 MONGO_URI=
 ```
 
 
 ## Run the project
-
-Run the following command to run the project
+Run the following command to run the project:
 
 ```
 nodemon app.ts
@@ -35,18 +35,16 @@ nodemon app.ts
 
 
 ## Project Structure
-
-Following is the project structure of this application
+Following is the project structure of this application:
 
 ```
 ├── src/
 │   ├── controllers/    # API logic
-│   ├── db/             # To connect to db
+│   ├── config/         # To connect to db
 │   ├── errors/         # Error functions
 │   ├── middlewares/    # Custom middleware
 │   ├── models/         # Mongoose Schemas
 │   ├── routes/         # Express routes
-│   ├── utils/          # Helper functions
 ├── package.json
 ├── package-lock.json
 ├── README.md
