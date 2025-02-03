@@ -27,7 +27,7 @@ npm install
 
 ## 📚 Envirnoment variables
 
-This project is connected to a mongodb database. Create a project in mongodb and host a cluster. Get the uri of the cluster and add it to your .env file. Here are the required variables:
+This project is connected to a mongodb database. Create a project in mongodb and host a cluster. Get the connection string of the cluster and add it to your .env file. Here are the required variables:
 ```
 MONGO_URI=
 ```
