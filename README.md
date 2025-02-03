@@ -1,7 +1,10 @@
 <h1 display="flex" align="center">Menu Management NodeJS Application</h1>
 
-<div display="flex" align="center">
-![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
+
+<div align="center">
+  <a href="https://menu-management-7uyy.onrender.com/" target="_blank" rel="noreferrer">
+    <img src="https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white" alt="Render Live Link"/>
+  </a>
 </div>
 
 ## Introduction
