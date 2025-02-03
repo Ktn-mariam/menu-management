@@ -1,13 +1,18 @@
 <h1 display="flex" align="center">Menu Management NodeJS Application</h1>
 
+## Introduction
+
+
 ## Prerequisites
 
-Run the following command to install the dependencies:
 
+
+## Installation
+
+Run the following command to install the dependencies:
 ```
 npm install
 ```
-
 
 ## Envirnoment variables
 
@@ -59,7 +64,7 @@ Following is the project structure of this application
 
 This NodeJS application has 3 APIs. The menu is divided into 3 parts: Category, SubCategory, and Item. Categories have subcategories. Items can be created under categories and subCategories.
 
-### Category API:
+### 1. Category API:
 
 The category API has the following 4 endpoints:
 
@@ -70,7 +75,7 @@ The category API has the following 4 endpoints:
 | Get Category   | `/api/v1/category/:categoryId` |    **GET** |
 | Update Category   | `/api/v1/category/:categoryId` |    **PATCH** |
 
-### SubCategory API:
+### 2. SubCategory API:
 
 The subCategory API has the following 4 endpoints:
 
@@ -84,7 +89,7 @@ The subCategory API has the following 4 endpoints:
 
 
 
-### Item API:
+### 3. Item API:
 
 The item API has the following 7 endpoints:
 
@@ -97,3 +102,6 @@ The item API has the following 7 endpoints:
 | Search Item by name   | `/api/v1/item/search?searchName=` |    **GET** |
 | Get Item   | `/api/v1/item/:itemId` |    **GET** |
 | Update Item   | `/api/v1/item/:itemId` |    **PATCH** |
+
+
+## Deployment

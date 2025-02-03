@@ -5,11 +5,11 @@
 // API to edit sub category attributes
 
 import { Router } from 'express';
-import { addSubCategory, getAllSubCategories, getAllSubCategoriesOfCategory, getSubCategory } from '../controllers/subcategory';
+import { addSubCategory, getAllSubCategories, getAllSubCategoriesOfCategory, getSubCategory, updateSubCategory } from '../controllers/subcategory';
 const router = Router();
 
 router.route('/').post(addSubCategory).get(getAllSubCategories)
 router.route('/category/:categoryId').get(getAllSubCategoriesOfCategory)
-router.route('/:subCategoryId').get(getSubCategory)
+router.route('/:subCategoryId').get(getSubCategory).patch(updateSubCategory)
 
 export default router;
