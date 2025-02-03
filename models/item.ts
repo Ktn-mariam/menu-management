@@ -41,15 +41,15 @@ const ItemSchema = new Schema({
   },
   baseAmount: {
     type: Number,
-    required: true,
+    required: [true, 'Base Amount is required to create an item'],
   },
   discount: {
     type: Number,
-    required: true
+    required: [true, 'Discount is required to create an item']
   },
   totalAmount: {
     type: Number,
-    required: true
+    required: [true, 'Total Amount is required to create an item']
   }
 })
 
