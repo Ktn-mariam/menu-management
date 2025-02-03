@@ -111,4 +111,9 @@ The item API has the following 7 endpoints:
 
 ## 🔗 Deployment
 
-This application was deployed on Render. Make sure you enter the Environment Variables before deploying it.
+This application was deployed on Vercel Make sure you enter the Environment Variables before deploying it. You also need add vercel.json file with the following content:
+```
+{ "version": 2, "rewrites": [{ "source": "/(.*)", "destination": "/api" }] }
+```
+
+You also need to make sure the main file is named `index.ts` and is in the /api folder.
