@@ -111,7 +111,7 @@ The item API has the following 7 endpoints:
 
 ## 🔗 Deployment
 
-This application was deployed on Vercel Make sure you enter the Environment Variables before deploying it. You also need add vercel.json file with the following content:
+This application was deployed on Vercel. Make sure you enter the Environment Variables before deploying it. You also need to add vercel.json file with the following content:
 ```
 { "version": 2, "rewrites": [{ "source": "/(.*)", "destination": "/api" }] }
 ```
