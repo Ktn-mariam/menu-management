@@ -103,13 +103,13 @@ const searchItem = async (req: Request, res: Response, next: NextFunction) => {
 
   if (searchName) {
     const queryStrings = (searchName as string).split(" ");
-    const allQueries: { name: { $regex: String; }; }[] = [];
+    const allQueries: { name: { $regex: String, $options: String }; }[] = [];
 
     queryStrings.forEach((element: any) => {
-      allQueries.push({ name: { $regex: String(element) } });
+      allQueries.push({ name: { $regex: String(element), $options: "i" } });
     });
 
-    const allItems = await Item.find({ $or: allQueries, $options: "i" });
+    const allItems = await Item.find({ $or: allQueries });
     res.status(StatusCodes.OK).json({ allItems });
   } else {
     const items = await Item.find({});
