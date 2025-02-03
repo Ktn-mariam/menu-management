@@ -37,7 +37,7 @@ MONGO_URI=
 Run the following command to run the project:
 
 ```
-nodemon app.ts
+npm start
 ```
 
 
