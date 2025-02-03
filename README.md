@@ -7,13 +7,13 @@
   </a>
 </div>
 
-## Introduction
+## 🧐 Introduction
 This backend application is built with Node.js and Express.js, utilizing MongoDB as its database to simplify menu management.
 
-## Prerequisites
+## 🖥️ Prerequisites
 The v22.12.0 version of Node is required for the installation and building of this application.
 
-## Installation
+## ⚙️ Installation
 
 1. Clone this repository by running the following command in your terminal:
 ```
@@ -25,7 +25,7 @@ cd menu-management
 npm install
 ```
 
-## Envirnoment variables
+## 📚 Envirnoment variables
 
 This project is connected to a mongodb database. Create a project in mongodb and host a cluster. Get the uri of the cluster and add it to your .env file. Here are the required variables:
 ```
@@ -33,7 +33,7 @@ MONGO_URI=
 ```
 
 
-## Run the project
+## ▶️ Run the project
 Run the following command to run the project:
 
 ```
@@ -41,7 +41,7 @@ nodemon app.ts
 ```
 
 
-## Project Structure
+## 📁 Project Structure
 Following is the project structure of this application:
 
 ```
@@ -61,11 +61,11 @@ Following is the project structure of this application:
 ├── tsconfig.json
 ```
 
-## Schema Design
+## 🛠️ Schema Design
 
 ![Blank diagram (2)](https://github.com/user-attachments/assets/3d919838-3efa-4996-a693-dd77ac939b1d)
 
-## API Endpoints
+## 📨 API Endpoints
 
 This NodeJS application has 3 APIs. The menu is divided into 3 parts: Category, SubCategory, and Item. Categories have subcategories. Items can be created under categories and subCategories.
 
@@ -109,6 +109,6 @@ The item API has the following 7 endpoints:
 | Update Item   | `/api/v1/item/:itemId` |    **PATCH** |
 
 
-## Deployment
+## 🔗 Deployment
 
 This application was deployed on Render. Make sure you enter the Environment Variables before deploying it.
