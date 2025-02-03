@@ -109,7 +109,7 @@ const searchItem = async (req: Request, res: Response, next: NextFunction) => {
       allQueries.push({ name: { $regex: String(element) } });
     });
 
-    const allItems = await Item.find({ $or: allQueries });
+    const allItems = await Item.find({ $or: allQueries, $options: "i" });
     res.status(StatusCodes.OK).json({ allItems });
   } else {
     const items = await Item.find({});
