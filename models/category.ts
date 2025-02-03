@@ -29,7 +29,7 @@ const CategorySchema = new Schema({
   },
   taxType: {
     type: String,
-    enum: ['INCOME', 'WEALTH', 'GIFT', 'CAPITAL GAINS', 'SECURITIES TRANSACTION', 'CORPORATE']
+    enum: ['PURCHASE', 'VAT', 'SERVICE', 'INCOME', 'ENTERTAINMENT', 'SALES'],
   }
 })
 
