@@ -2,8 +2,8 @@
 
 
 <div align="center">
-  <a href="https://menu-management-7uyy.onrender.com/" target="_blank" rel="noreferrer">
-    <img src="https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white" alt="Render Live Link"/>
+  <a href="https://menu-management-mariam.vercel.app/" target="_blank" rel="noreferrer">
+    <img src="https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel Live Link"/>
   </a>
 </div>
 
