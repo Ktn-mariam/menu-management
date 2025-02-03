@@ -103,3 +103,5 @@ The item API has the following 7 endpoints:
 
 
 ## Deployment
+
+This application was deployed on Render. Make sure you enter the Environment Variables before deploying it.
