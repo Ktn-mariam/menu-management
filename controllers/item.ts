@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import Item from "../models/item";
 import { StatusCodes } from "http-status-codes";
 import SubCategory from "../models/subcategory";
+import Category from "../models/category";
 import { BadRequestError, NotFoundError } from "../errors";
 
 // To create a Item
@@ -10,26 +11,50 @@ const addItem = async (req: Request, res: Response, next: NextFunction) => {
     ? req.body.totalAmount
     : req.body.baseAmount - req.body.discount;
 
-  if (!req.body.categoryId && !req.body.subCategoryId) {
-    next(new BadRequestError(
-      "Cannot create an Item without categoryId or subCategoryId"
-    ))
+  let subCategory;
+  let category;
+  if (req.body.subCategoryId) {
+    subCategory = await SubCategory.findOne({
+      _id: req.body.subCategoryId,
+    });
+
+    if (!subCategory) {
+      next(
+        new BadRequestError(
+          `SubCategory ${req.body.subCategoryId} does not exist`
+        )
+      );
+    }
+  }
+
+  if (req.body.categoryId) {
+    category = await Category.findOne({
+      _id: req.body.categoryId,
+    });
+
+    if (!category) {
+      next(
+        new BadRequestError(`Category ${req.body.categoryId} does not exist`)
+      );
+    }
   }
 
   let tax;
   let taxApplicability;
   let categoryId;
   if (!req.body.categoryId || !req.body.taxApplicability || !req.body.tax) {
-    const subCategory = await SubCategory.findOne({
-      _id: req.body.subCategoryId,
-    });
-
     categoryId = subCategory?.categoryId;
     taxApplicability = subCategory?.taxApplicability;
     tax = subCategory?.tax;
   }
 
-  const item = await Item.create({ categoryId, totalAmount, tax, taxApplicability, ...req.body });
+  const item = await Item.create({
+    categoryId,
+    totalAmount,
+    tax,
+    taxApplicability,
+    ...req.body,
+  });
   res.status(StatusCodes.CREATED).json({ item });
 };
 
@@ -41,7 +66,11 @@ const getAllItems = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 // To get All Items of Category
-const getAllItemsOfCategory = async (req: Request, res: Response, next: NextFunction) => {
+const getAllItemsOfCategory = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const { categoryId } = req.params;
   const items = await Item.find({ categoryId }).select("_id name");
 
@@ -49,7 +78,11 @@ const getAllItemsOfCategory = async (req: Request, res: Response, next: NextFunc
 };
 
 // To get All Items of Sub Category
-const getAllItemsOfSubCategory = async (req: Request, res: Response, next: NextFunction) => {
+const getAllItemsOfSubCategory = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const { subCategoryId } = req.params;
   const items = await Item.find({ subCategoryId }).select("_id name");
 

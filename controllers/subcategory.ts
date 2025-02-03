@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import SubCategory from "../models/subcategory";
 import { StatusCodes } from "http-status-codes";
 import Category from "../models/category";
-import { NotFoundError } from "../errors";
+import { BadRequestError, NotFoundError } from "../errors";
 
 // To create a subcategory
 const addSubCategory = async (
@@ -12,8 +12,12 @@ const addSubCategory = async (
 ) => {
   let taxApplicability;
   let tax;
+  const parentCategory = await Category.findOne({ _id: req.body.categoryId });
+  if (!parentCategory) {
+    next(new BadRequestError(`Category ${req.body.categoryId} does not exist`))
+  }
+  
   if (!req.body.taxApplicability || !req.body.tax) {
-    const parentCategory = await Category.findOne({ _id: req.body.categoryId });
 
     taxApplicability = parentCategory?.taxApplicability;
     tax = parentCategory?.tax;
