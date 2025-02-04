@@ -70,6 +70,10 @@ const getSubCategory = async (
   const { subCategoryId } = req.params;
   const subCategory = await SubCategory.findOne({ _id: subCategoryId });
 
+  if (!subCategory) {
+    next(new NotFoundError(`SubCategory ${subCategoryId} not found`))
+  }
+
   res.status(StatusCodes.OK).json({ subCategory });
 };
 

@@ -22,6 +22,10 @@ const getCategory = async (req: Request, res: Response, next: NextFunction ) => 
   const { categoryId } = req.params;
   const category = await Category.findOne({ _id: categoryId });
 
+  if (!category) {
+    next(new NotFoundError(`Category ${categoryId} not found`))
+  }
+
   res.status(StatusCodes.OK).json({ category });
 };
 

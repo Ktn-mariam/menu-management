@@ -94,6 +94,10 @@ const getItem = async (req: Request, res: Response, next: NextFunction) => {
   const { itemId } = req.params;
   const item = await Item.findOne({ _id: itemId });
 
+  if (!item) {
+    next(new NotFoundError(`Item ${itemId} not found`))
+  }
+
   res.status(StatusCodes.OK).json({ item });
 };
 
