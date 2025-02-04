@@ -46,6 +46,7 @@ Following is the project structure of this application:
 
 ```
 ├── src/
+│   ├── api/            # Contains the main file
 │   ├── controllers/    # API logic
 │   ├── config/         # To connect to db
 │   ├── errors/         # Error functions
@@ -56,9 +57,9 @@ Following is the project structure of this application:
 ├── package-lock.json
 ├── README.md
 ├── .env
-├── app.ts              # Main file
 ├── .gitignore
 ├── tsconfig.json
+├── vercel.json
 ```
 
 ## 🛠️ Schema Design
